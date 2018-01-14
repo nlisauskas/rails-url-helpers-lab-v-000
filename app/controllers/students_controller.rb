@@ -12,6 +12,8 @@ class StudentsController < ApplicationController
   def activate
     @student = Student.find_by(:id => params[:id])
     @student.activate = !@student.activate
+    @student.save
+    redirect_to student_path(@student)
   end
 
   private
